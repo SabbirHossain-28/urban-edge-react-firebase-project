@@ -1,8 +1,9 @@
+import HomeBanner from "../../Components/HomeBanner/HomeBanner";
 
 const Home = () => {
     return (
         <div>
-            <h2 className="text-2xl">This is home page layout</h2>
+            <HomeBanner></HomeBanner>
         </div>
     );
 };
