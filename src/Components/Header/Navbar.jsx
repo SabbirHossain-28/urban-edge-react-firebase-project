@@ -38,12 +38,17 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-3xl font-bold">Urban-Edge</a>
+        <a className="btn btn-ghost text-[#BB915B] text-3xl font-bold">Estate-Finder</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end gap-2">
+        <div>
+        <p className="bg-red-500 text-white rounded-md p-2">
+              <a>Logout</a>
+            </p>
+        </div>
         <div className="dropdown dropdown-end">
           <div
             tabIndex={0}
@@ -63,9 +68,6 @@ const Navbar = () => {
           >
             <li>
               <a>Name</a>
-            </li>
-            <li className="bg-red-500 text-white rounded-md">
-              <a>Logout</a>
             </li>
           </ul>
         </div>
