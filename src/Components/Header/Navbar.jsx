@@ -1,6 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../AuthContextProvider/AuthContextProvider";
 
 const Navbar = () => {
+  const { user } = useContext(AuthContext);
+
   const navLinks = (
     <>
       <li className="mr-4">
@@ -8,6 +12,9 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink to="/updateProfile">Update Profile</NavLink>
+      </li>
+      <li>
+        <NavLink to="/register">Register</NavLink>
       </li>
     </>
   );
@@ -38,16 +45,24 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-[#BB915B] text-3xl font-bold">Estate-Finder</a>
+        <a className="btn btn-ghost text-[#BB915B] text-3xl font-bold">
+          Estate-Finder
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end gap-2">
         <div>
-        <p className="bg-red-500 text-white rounded-md p-2">
-              <a>Logout</a>
+          {user ? (
+            <p className="bg-green-500 text-white rounded-md p-2">
+              <Link>Logout</Link>
             </p>
+          ) : (
+            <p className="bg-red-500 text-white rounded-md p-2">
+              <Link>Login</Link>
+            </p>
+          )}
         </div>
         <div className="dropdown dropdown-end">
           <div
@@ -55,12 +70,17 @@ const Navbar = () => {
             role="button"
             className="btn btn-ghost btn-circle avatar"
           >
-            <div className="w-16 rounded-full">
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-              />
+            {
+              user?<div className="avatar online">
+              <div className="w-sm rounded-full">
+                <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              </div>
+            </div>:<div className="avatar offline">
+              <div className="w-sm rounded-full">
+                <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+              </div>
             </div>
+            }
           </div>
           <ul
             tabIndex={0}
