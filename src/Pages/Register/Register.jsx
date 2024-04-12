@@ -1,26 +1,30 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthContextProvider/AuthContextProvider";
+import { useForm } from "react-hook-form"
+
 
 const Register = () => {
-    const {createUser}=useContext(AuthContext);
-    console.log(createUser);
 
-    const handleSubmit=(e)=>{
-        e.preventDefault();
-        const form=e.target;
-        const email=form.email.value;
-        const password=form.password.value;
-        console.log(email,password);
+  const {createUser}=useContext(AuthContext);
 
-        createUser(email,password)
-        .then(userCredential=>{
-            console.log(userCredential.user);
-        })
-        .catch(error=>{
-            console.error(error);
-        })
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
 
-    }
+  const onSubmit = (data) => {
+    const {email,password}=data;
+
+    createUser(email,password)
+    .then(userCredential=>{
+      console.log(userCredential.user);
+    })
+    .catch(error=>{
+      console.error(error);
+    })
+  }
+  
 
   return (
     <div>
@@ -37,7 +41,24 @@ const Register = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                 Create and account
               </h1>
-              <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 md:space-y-6">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Your full name
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="name"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Full-name"
+                    {...register("fullname", { required: true })}
+                  />
+                  {errors.fullname && <span className="text-red-500">This field is required</span>}
+                </div>
                 <div>
                   <label
                     htmlFor="email"
@@ -51,8 +72,9 @@ const Register = () => {
                     id="email"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="name@company.com"
-                    required
+                    {...register("email", { required: true })}
                   />
+                  {errors.email && <span className="text-red-500">This field is required</span>}
                 </div>
                 <div>
                   <label
@@ -67,8 +89,9 @@ const Register = () => {
                     id="password"
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    required
+                    {...register("password", { required: true })}
                   />
+                  {errors.password && <span className="text-red-500">This field is required</span>}
                 </div>
 
                 <div className="flex items-start"></div>
