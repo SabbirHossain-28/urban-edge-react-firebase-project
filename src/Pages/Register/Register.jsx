@@ -1,30 +1,28 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthContextProvider/AuthContextProvider";
-import { useForm } from "react-hook-form"
-
+import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const Register = () => {
-
-  const {createUser}=useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm();
 
   const onSubmit = (data) => {
-    const {email,password}=data;
+    const { email, password } = data;
 
-    createUser(email,password)
-    .then(userCredential=>{
-      console.log(userCredential.user);
-    })
-    .catch(error=>{
-      console.error(error);
-    })
-  }
-  
+    createUser(email, password)
+      .then((userCredential) => {
+        console.log(userCredential.user);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <div>
@@ -39,9 +37,12 @@ const Register = () => {
           <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
             <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                Create and account
+                Create an account
               </h1>
-              <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 md:space-y-6">
+              <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="space-y-4 md:space-y-6"
+              >
                 <div>
                   <label
                     htmlFor="name"
@@ -57,7 +58,9 @@ const Register = () => {
                     placeholder="Full-name"
                     {...register("fullname", { required: true })}
                   />
-                  {errors.fullname && <span className="text-red-500">This field is required</span>}
+                  {errors.fullname && (
+                    <span className="text-red-500">This field is required</span>
+                  )}
                 </div>
                 <div>
                   <label
@@ -74,7 +77,28 @@ const Register = () => {
                     placeholder="name@company.com"
                     {...register("email", { required: true })}
                   />
-                  {errors.email && <span className="text-red-500">This field is required</span>}
+                  {errors.email && (
+                    <span className="text-red-500">This field is required</span>
+                  )}
+                </div>
+                <div>
+                  <label
+                    htmlFor="photoURL"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Your photo URL
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="photoURL"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Photo-URL"
+                    {...register("fullname", { required: true })}
+                  />
+                  {errors.fullname && (
+                    <span className="text-red-500">This field is required</span>
+                  )}
                 </div>
                 <div>
                   <label
@@ -91,19 +115,25 @@ const Register = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     {...register("password", { required: true })}
                   />
-                  {errors.password && <span className="text-red-500">This field is required</span>}
+                  {errors.password && (
+                    <span className="text-red-500">This field is required</span>
+                  )}
                 </div>
 
                 <div className="flex items-start"></div>
-                <input className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="submit" value="Create an account" />
+                <input
+                  className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                  type="submit"
+                  value="Create an account"
+                />
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Already have an account?{" "}
-                  <a
-                    href="#"
+                  Already have an account?
+                  <Link
+                    to="/login"
                     className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                   >
                     Login here
-                  </a>
+                  </Link>
                 </p>
               </form>
             </div>
