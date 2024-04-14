@@ -3,7 +3,7 @@ import { GrCheckboxSelected } from "react-icons/gr";
 const Mission = () => {
   return (
     <div className="mb-12">
-      <h2 className="mb-10 text-center text-3xl font-semibold ">Our mission is to redefine real estate for the customers</h2>
+      <h2 className="mb-10 text-center text-3xl text-[#BB915B] font-semibold ">Our mission is to redefine real estate for the customers</h2>
       <div className="flex gap-6">
         <div className="w-1/2  flex items-center text-justify">
         <p className="text-lg text-[#131313B3]">

@@ -1,0 +1,66 @@
+[
+  {
+    "estate_title": "Downtown Office Tower",
+    "id": "001",
+    "segment_name": "Office Building",
+    "description": "This modern office tower, standing tall in the bustling downtown district, offers an unparalleled workspace environment. With 30 floors of premium office space, it caters to the needs of businesses of all sizes. Featuring panoramic views of the city skyline, state-of-the-art conference rooms, a spacious parking garage, and round-the-clock security, this tower is where productivity meets luxury. Constructed in 2010, it embodies the epitome of contemporary office architecture.",
+    "price": "$10,000,000",
+    "status": "sale",
+    "area": "50,000 sq ft",
+    "location": "Downtown Business District",
+    "facilities": ["Conference rooms", "Parking garage", "24/7 security"],
+    "image": "https://example.com/downtown_office_tower.jpg",
+    "other_information": {
+      "number_of_floors": 30,
+      "year_built": 2010
+    }
+  },
+  {
+    "estate_title": "Retail Space on Main Street",
+    "id": "002",
+    "segment_name": "Retail Space",
+    "description": "Nestled in the heart of Main Street, this retail space offers a prime location for businesses looking to attract a steady stream of customers. Boasting 2,500 square feet of versatile floor space, it's perfect for boutique shops, trendy cafes, or chic restaurants. The expansive storefront windows flood the interior with natural light, creating an inviting atmosphere for shoppers. With amenities including a restroom and ample storage area, this space is ready to bring your retail vision to life.",
+    "price": "$5,000/month",
+    "status": "rent",
+    "area": "2,500 sq ft",
+    "location": "Main Street",
+    "facilities": ["Storefront windows", "Restroom", "Storage area"],
+    "image": "https://example.com/retail_space_main_street.jpg",
+    "other_information": {
+      "lease_term": "3 years",
+      "available_from": "Immediate"
+    }
+  },
+  {
+    "estate_title": "Industrial Warehouse Complex",
+    "id": "003",
+    "segment_name": "Warehouse",
+    "description": "Spanning across five acres in the industrial park, this warehouse complex offers expansive space for manufacturing, distribution, or storage purposes. With a total area of 100,000 square feet and featuring five individual units, it's equipped with loading docks, heavy-duty flooring, and office space for administrative needs. Conveniently located near major highways, this complex provides seamless logistics for businesses seeking efficiency and scalability in their operations.",
+    "price": "$3,500,000",
+    "status": "sale",
+    "area": "100,000 sq ft",
+    "location": "Industrial Park",
+    "facilities": ["Loading docks", "Heavy-duty flooring", "Office space"],
+    "image": "https://example.com/industrial_warehouse_complex.jpg",
+    "other_information": {
+      "number_of_units": 5,
+      "land_area": "5 acres"
+    }
+  },
+  {
+    "estate_title": "Entertainment Venue",
+    "id": "004",
+    "segment_name": "Entertainment",
+    "description": "This versatile entertainment venue, located in the vibrant city center, sets the stage for unforgettable events. With a sprawling area of 10,000 square feet, it's designed to host everything from electrifying concerts to corporate conferences. Equipped with a professional stage, a fully stocked bar area, and VIP lounges, it caters to the needs of both performers and attendees alike. Boasting a maximum capacity of 1000 guests and parking for 200 vehicles, it ensures seamless event logistics for memorable experiences.",
+    "price": "$20,000/day",
+    "status": "rent",
+    "area": "10,000 sq ft",
+    "location": "City Center",
+    "facilities": ["Stage", "Bar area", "VIP lounges"],
+    "image": "https://example.com/entertainment_venue.jpg",
+    "other_information": {
+      "maximum_capacity": 1000,
+      "parking_capacity": 200
+    }
+  }
+]
