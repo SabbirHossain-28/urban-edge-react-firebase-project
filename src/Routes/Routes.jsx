@@ -22,6 +22,7 @@ export const routes = createBrowserRouter([
             <CardDetails></CardDetails>
           </PrivetRoute>
         ),
+        loader: ()=> fetch("https://sabbirhossain-28.github.io/estate-data-json/sagmentData.json"),
       },
       {
         path: "/register",
