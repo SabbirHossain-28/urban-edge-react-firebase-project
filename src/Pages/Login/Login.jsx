@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../AuthContextProvider/AuthContextProvider";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
-
-  const [showPassword,setShowPassword]=useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const toastId = useRef(null);
 
   const { userLogin } = useContext(AuthContext);
 
@@ -14,24 +16,43 @@ const Login = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
     const { email, password } = data;
 
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
+
+    if (
+      (password.length < 6 ||
+      !passwordRegex.test(password)) && (!toast.isActive(toastId.current))
+    ) {
+      return (toastId.current = toast.error(
+        "Password must be at least 6 characters long and contain at least one uppercase and one lowercase letter"
+      ));
+    }
+
     userLogin(email, password)
       .then((userCredential) => {
         console.log(userCredential.user);
+        if(userCredential && (!toast.isActive(toastId.current))){
+          (toastId.current=toast.success("You are successfully logged in"))
+          reset();
+          return
+        }
       })
       .catch((error) => {
-        console.error(error);
+        if(error && !toast.isActive(toastId.current))
+        return (toastId.current=toast.error("Invalid email and password"))
+        // error && toast.error("Invalid email and password");
       });
   };
 
-  const handlePasswordShowToggler=()=>{
+  const handlePasswordShowToggler = () => {
     setShowPassword(!showPassword);
-  }
+  };
 
   return (
     <div>
@@ -68,7 +89,7 @@ const Login = () => {
                       placeholder="name@company.com"
                       {...register("email", { required: true })}
                     />
-                    
+
                     {errors.email && (
                       <span className="text-red-500">
                         This field is required
@@ -83,21 +104,31 @@ const Login = () => {
                       Password
                     </label>
                     <input
-                      type={
-                        showPassword?"text":"password"
-                      }
+                      type={showPassword ? "text" : "password"}
                       name="password"
                       id="password"
                       placeholder="••••••••"
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      {...register("password", { required: true , minLength:6})}
+                      {...register("password", {
+                        required: {
+                          value: true,
+                          message: "This field is required",
+                        },
+                      })}
                     />
-                    <span onClick={handlePasswordShowToggler} className="absolute right-2 top-10">
-                      {showPassword?<IoMdEyeOff className="text-gray-400 text-xl"></IoMdEyeOff>:<IoMdEye className="text-gray-400 text-xl "></IoMdEye>}
+                    <span
+                      onClick={handlePasswordShowToggler}
+                      className="absolute right-2 top-10"
+                    >
+                      {showPassword ? (
+                        <IoMdEyeOff className="text-gray-400 text-xl"></IoMdEyeOff>
+                      ) : (
+                        <IoMdEye className="text-gray-400 text-xl "></IoMdEye>
+                      )}
                     </span>
                     {errors.password && (
                       <span className="text-red-500">
-                        This field is required
+                        {errors.password.message}
                       </span>
                     )}
                   </div>
@@ -123,6 +154,7 @@ const Login = () => {
           </div>
         </section>
       </div>
+      <ToastContainer position="top-center" theme="colored" autoClose={4000} />
     </div>
   );
 };

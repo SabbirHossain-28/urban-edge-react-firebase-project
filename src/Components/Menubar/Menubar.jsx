@@ -2,25 +2,25 @@ const Menubar = () => {
   return (
     <div className="mb-12 bg-[#1313130D] border p-6">
       <div className="flex gap-4">
-        <select className="select select-bordered w-full max-w-sm">
-          <option disabled selected>
+        <select defaultValue="" className="select select-bordered w-full max-w-sm">
+          <option disabled value="">
             Property Types
           </option>
-          <option>Office buildings</option>
-          <option>Retail spaces</option>
-          <option>warehouses</option>
-          <option>Industrial</option>
-          <option>Restaurants</option>
+          <option value="office">Office buildings</option>
+          <option value="retail">Retail spaces</option>
+          <option value="warehouses">Warehouses</option>
+          <option value="industrial">Industrial</option>
+          <option value="restaurants">Restaurants</option>
         </select>
-        <select className="select select-bordered w-full max-w-sm">
-          <option disabled selected>
+        <select defaultValue="" className="select select-bordered w-full max-w-sm">
+          <option disabled value="">
             Price
           </option>
-          <option>100k-200k</option>
-          <option>200k-300k</option>
-          <option>300k-500k</option>
-          <option>500k-600k</option>
-          <option>600k-800k</option>
+          <option value="100k-200k">100k-200k</option>
+          <option value="200k-300k">200k-300k</option>
+          <option value="300k-500k">300k-500k</option>
+          <option value="500k-600k">500k-600k</option>
+          <option value="600k-800k">600k-800k</option>
         </select>
         <input
           type="text"
