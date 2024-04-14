@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthContextProvider/AuthContextProvider";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -18,6 +18,9 @@ const Register = () => {
     createUser(email, password)
       .then((userCredential) => {
         console.log(userCredential.user);
+        if(userCredential.user){
+          <Navigate to="/"></Navigate>
+        }
       })
       .catch((error) => {
         console.error(error);

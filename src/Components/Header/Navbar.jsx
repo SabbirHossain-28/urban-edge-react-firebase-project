@@ -1,9 +1,32 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthContextProvider/AuthContextProvider";
 
 const Navbar = () => {
-  const { user,userLogout } = useContext(AuthContext);
+  const { user,userLogout,loading} = useContext(AuthContext);
+  const [initialLoading, setInitialLoading] = useState(true);
+  useEffect(() => {
+    if (!loading) {
+      setInitialLoading(false);
+    }
+  }, [loading]);
+  const renderLoginButton = () => {
+    if (initialLoading) {
+      return <span className="loading loading-spinner loading-lg"></span> // Show spinner during initial loading
+    } else if (user) {
+      return (
+        <p className="bg-green-500 text-white rounded-md p-2">
+          <Link onClick={() => userLogout()}>Logout</Link>
+        </p>
+      );
+    } else {
+      return (
+        <p className="bg-red-500 text-white rounded-md p-2">
+          <Link to="/login">Login</Link>
+        </p>
+      );
+    }
+  };
 
   const navLinks = (
     <>
@@ -57,7 +80,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end gap-2">
         <div>
-          {user ? (
+          {/* {user ? (
             <p className="bg-green-500 text-white rounded-md p-2">
               <Link onClick={()=>userLogout()}>Logout</Link>
             </p>
@@ -65,7 +88,8 @@ const Navbar = () => {
             <p className="bg-red-500 text-white rounded-md p-2">
               <Link to="/login">Login</Link>
             </p>
-          )}
+          )} */}
+          <div>{renderLoginButton()}</div>
         </div>
         <div className="dropdown dropdown-end">
           <div
