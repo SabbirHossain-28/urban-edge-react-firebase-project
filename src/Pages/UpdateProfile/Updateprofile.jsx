@@ -1,8 +1,9 @@
+import ProfileCrad from "../../Components/ProfileCard/ProfileCard";
 
 const Updateprofile = () => {
     return (
         <div>
-            <h2>Update your Profile here</h2>
+            <ProfileCrad></ProfileCrad>
         </div>
     );
 };
