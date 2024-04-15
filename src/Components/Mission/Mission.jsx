@@ -2,10 +2,10 @@ import { GrCheckboxSelected } from "react-icons/gr";
 
 const Mission = () => {
   return (
-    <div className="mb-12">
-      <h2 className="mb-10 text-center text-3xl text-[#BB915B] font-semibold ">Our mission is to redefine real estate for the customers</h2>
-      <div className="flex gap-6">
-        <div className="w-1/2  flex items-center text-justify">
+    <div className="mb-24">
+      <h2 className="mb-6 text-center text-3xl text-[#BB915B] font-semibold ">Our mission is to redefine real estate for the customers</h2>
+      <div className="flex flex-col md:flex-row lg:flex-row gap-6">
+        <div className=" md:w-1/2 lg:w-1/2  flex items-center text-justify">
         <p className="text-lg text-[#131313B3]">
           <span className="text-3xl text-[#BB915B] font-semibold">Estate Finder</span> is one of the world leading property agents. Our
           experience spans the globe. We have been advising on buying, selling
@@ -16,7 +16,7 @@ const Mission = () => {
           cutting-edge technology and unparalleled customer service.
         </p>
         </div>
-        <div className="w-1/2 text-[#131313B3] flex justify-center">
+        <div className="md:w-1/2 lg:w-1/2 text-[#131313B3] flex justify-center">
             <div>
             <p className="flex items-center gap-2 text-lg"><GrCheckboxSelected></GrCheckboxSelected>Only pay when you publish</p>
             <p className="flex items-center gap-2 text-lg"><GrCheckboxSelected></GrCheckboxSelected>Full featured event app</p>

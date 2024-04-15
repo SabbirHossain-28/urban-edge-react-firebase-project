@@ -1,7 +1,7 @@
 const Menubar = () => {
   return (
-    <div className="mb-12 bg-[#1313130D] border p-6">
-      <div className="flex gap-4">
+    <div className="mb-24 bg-[#1313130D] border p-6">
+      <div className="flex flex-col md:flex-row lg:flex-row gap-4">
         <select defaultValue="" className="select select-bordered w-full max-w-sm">
           <option disabled value="">
             Property Types
