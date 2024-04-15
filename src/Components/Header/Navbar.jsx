@@ -1,10 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthContextProvider/AuthContextProvider";
+import { IoPersonCircleOutline } from "react-icons/io5";
 
 const Navbar = () => {
   const { user,userLogout,loading} = useContext(AuthContext);
   const [initialLoading, setInitialLoading] = useState(true);
+  console.log(user);
   useEffect(() => {
     if (!loading) {
       setInitialLoading(false);
@@ -80,44 +82,21 @@ const Navbar = () => {
       </div>
       <div className="navbar-end gap-2">
         <div>
-          {/* {user ? (
-            <p className="bg-green-500 text-white rounded-md p-2">
-              <Link onClick={()=>userLogout()}>Logout</Link>
-            </p>
-          ) : (
-            <p className="bg-red-500 text-white rounded-md p-2">
-              <Link to="/login">Login</Link>
-            </p>
-          )} */}
           <div>{renderLoginButton()}</div>
         </div>
-        <div className="dropdown dropdown-end">
-          <div
-            tabIndex={0}
-            role="button"
-            className="btn btn-ghost btn-circle avatar"
-          >
+            <div className="w-14 tooltip tooltip-bottom" data-tip={user?.displayName}>
             {
               user?<div className="avatar online">
               <div className="w-sm rounded-full">
-                <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                <img className="w-full" src={user?.photoURL} />
               </div>
             </div>:<div className="avatar offline">
               <div className="w-sm rounded-full">
-                <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                <IoPersonCircleOutline className="text-5xl"></IoPersonCircleOutline>
               </div>
             </div>
             }
-          </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-28"
-          >
-            <li>
-              <a>Name</a>
-            </li>
-          </ul>
-        </div>
+            </div>
       </div>
     </div>
   );

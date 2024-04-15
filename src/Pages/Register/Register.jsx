@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { AuthContext } from "../../AuthContextProvider/AuthContextProvider";
 import { useForm } from "react-hook-form";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUserProfile,userLogout } = useContext(AuthContext);
+  const navigate=useNavigate();
 
   const {
     register,
@@ -14,11 +15,14 @@ const Register = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    const { email, password } = data;
+    const { email, password, fullname, photoURL } = data;
 
     createUser(email, password)
       .then((userCredential) => {
+        updateUserProfile(fullname, photoURL).then(() => {});
         console.log(userCredential);
+        userLogout();
+        navigate("/login")
       })
       .catch((error) => {
         console.error(error);
@@ -91,13 +95,13 @@ const Register = () => {
                   </label>
                   <input
                     type="text"
-                    name="name"
+                    name="photoURL"
                     id="photoURL"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Photo-URL"
-                    {...register("fullname", { required: true })}
+                    {...register("photoURL", { required: true })}
                   />
-                  {errors.fullname && (
+                  {errors.photoURL && (
                     <span className="text-red-500">This field is required</span>
                   )}
                 </div>
