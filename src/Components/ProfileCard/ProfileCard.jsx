@@ -3,32 +3,38 @@ import { AuthContext } from "../../AuthContextProvider/AuthContextProvider";
 import { useForm } from "react-hook-form";
 
 const ProfileCrad = () => {
-  const { user } = useContext(AuthContext);
+  const { user,updateUserProfile,setReload,reload } = useContext(AuthContext);
 
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
+    const {fullname,photoURL}=data;
+
+    updateUserProfile(fullname,photoURL)
+    .then(()=>{
+        console.log("User data updated successfully");
+        setReload(!reload);
+        reset();
+
+    })
   };
 
   return (
-    <div className="mx-auto my-16 max-w-[350px] space-y-4 rounded-2xl bg-white px-6 py-8 shadow-md dark:bg-[#21213a] md:max-w-[700px] md:h-[700px] ">
+    <div className="mx-auto mt-10 mb-12 max-w-[350px] space-y-3 rounded-2xl bg-white px-6 py-6 shadow-md dark:bg-[#21213a] md:max-w-[600px] md:max-h-[600px] ">
       {/* profile image & bg  */}
       <div className="relative ">
         <img
-          width={350}
-          height={150}
-          className="h-[250px] w-[700px] rounded-2xl bg-gray-500"
+          className="h-[200px] w-[600px] rounded-2xl bg-gray-500"
           src="https://source.unsplash.com/350x150/?northern lights"
           alt="Card Bg Image"
         />
         <img
-          width={100}
-          height={100}
           className="absolute -bottom-12 left-1/2 h-[150px] w-[150px] -translate-x-1/2 rounded-full border-4 border-white bg-gray-400 dark:border-[#18181B]"
           src={user?.photoURL}
           alt="User profilePhoto"
@@ -42,7 +48,7 @@ const ProfileCrad = () => {
       {/* post , followers following  */}
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="flex flex-col p-4 space-y-4"
+        className="flex flex-col p-4 space-y-2"
       >
         <div>
           <label

@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
-  const { createUser, updateUserProfile,userLogout } = useContext(AuthContext);
+  const { createUser, updateUserProfile,userLogout,setReload } = useContext(AuthContext);
   const navigate=useNavigate();
 
   const {
@@ -19,7 +19,7 @@ const Register = () => {
 
     createUser(email, password)
       .then((userCredential) => {
-        updateUserProfile(fullname, photoURL).then(() => {});
+        updateUserProfile(fullname, photoURL).then(() => {setReload(true)});
         console.log(userCredential);
         userLogout();
         navigate("/login")
