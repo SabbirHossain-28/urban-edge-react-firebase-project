@@ -13,14 +13,12 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
+    console.log(data);
     const { email, password } = data;
 
     createUser(email, password)
       .then((userCredential) => {
-        console.log(userCredential.user);
-        if(userCredential.user){
-          <Navigate to="/"></Navigate>
-        }
+        console.log(userCredential);
       })
       .catch((error) => {
         console.error(error);

@@ -3,7 +3,6 @@ import { GrMapLocation } from "react-icons/gr";
 import { Link } from "react-router-dom";
 
 const CategoryCard = ({data}) => {
-    console.log(data);
     const {id,image, price,status,estate_title,location}=data;
   return (
     <div>

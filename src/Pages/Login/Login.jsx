@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../AuthContextProvider/AuthContextProvider";
@@ -9,6 +9,9 @@ import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const toastId = useRef(null);
+  const location=useLocation();
+  const navigate=useNavigate();
+  console.log(location);
 
   const { userLogin } = useContext(AuthContext);
 
@@ -26,8 +29,8 @@ const Login = () => {
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
 
     if (
-      (password.length < 6 ||
-      !passwordRegex.test(password)) && (!toast.isActive(toastId.current))
+      (password.length < 6 || !passwordRegex.test(password)) &&
+      !toast.isActive(toastId.current)
     ) {
       return (toastId.current = toast.error(
         "Password must be at least 6 characters long and contain at least one uppercase and one lowercase letter"
@@ -37,15 +40,16 @@ const Login = () => {
     userLogin(email, password)
       .then((userCredential) => {
         console.log(userCredential.user);
-        if(userCredential && (!toast.isActive(toastId.current))){
-          (toastId.current=toast.success("You are successfully logged in"))
+        if (userCredential && !toast.isActive(toastId.current)) {
+          toastId.current = toast.success("You are successfully logged in");
+          navigate(location?.state? location.state: "/");
           reset();
-          return
+          return;
         }
       })
       .catch((error) => {
-        if(error && !toast.isActive(toastId.current))
-        return (toastId.current=toast.error("Invalid email and password"))
+        if (error && !toast.isActive(toastId.current))
+          return (toastId.current = toast.error("Invalid email and password"));
         // error && toast.error("Invalid email and password");
       });
   };

@@ -9,7 +9,6 @@ const CategoryCards = () => {
         .then(res=>res.json())
         .then(data=>setCategoryData(data))
     },[]);
-    console.log(categoryData);
     return (
         <div>
             <div className="text-center">
