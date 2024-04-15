@@ -4,7 +4,7 @@ import { AuthContext } from "../../AuthContextProvider/AuthContextProvider";
 import { IoPersonCircleOutline } from "react-icons/io5";
 
 const Navbar = () => {
-  const { user,userLogout,loading} = useContext(AuthContext);
+  const { user, userLogout, loading } = useContext(AuthContext);
   const [initialLoading, setInitialLoading] = useState(true);
   console.log(user);
   useEffect(() => {
@@ -14,7 +14,7 @@ const Navbar = () => {
   }, [loading]);
   const renderLoginButton = () => {
     if (initialLoading) {
-      return <span className="loading loading-spinner loading-lg"></span> // Show spinner during initial loading
+      return <span className="loading loading-spinner loading-lg"></span>; // Show spinner during initial loading
     } else if (user) {
       return (
         <p className="bg-green-500 text-white rounded-md p-2">
@@ -36,14 +36,16 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/updateProfile">Update Profile</NavLink>
-      </li>
-      <li>
         <NavLink to="/register">Register</NavLink>
       </li>
       <li>
         <NavLink to="/login">Login</NavLink>
       </li>
+      {user && (
+        <li>
+          <NavLink to="/updateProfile">Update Profile</NavLink>
+        </li>
+      )}
     </>
   );
   return (
@@ -84,19 +86,24 @@ const Navbar = () => {
         <div>
           <div>{renderLoginButton()}</div>
         </div>
-            <div className="w-14 tooltip tooltip-bottom" data-tip={user?.displayName}>
-            {
-              user?<div className="avatar online">
+        <div
+          className="w-14 tooltip tooltip-bottom"
+          data-tip={user?.displayName}
+        >
+          {user ? (
+            <div className="avatar online">
               <div className="w-sm rounded-full">
                 <img className="w-full" src={user?.photoURL} />
               </div>
-            </div>:<div className="avatar offline">
+            </div>
+          ) : (
+            <div className="avatar offline">
               <div className="w-sm rounded-full">
                 <IoPersonCircleOutline className="text-5xl"></IoPersonCircleOutline>
               </div>
             </div>
-            }
-            </div>
+          )}
+        </div>
       </div>
     </div>
   );

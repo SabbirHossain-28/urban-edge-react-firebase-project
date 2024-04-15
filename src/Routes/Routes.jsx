@@ -5,6 +5,7 @@ import Register from "../Pages/Register/Register";
 import Login from "../Pages/Login/Login";
 import CardDetails from "../Pages/CardDetails/CardDetails";
 import PrivetRoute from "./PrivetRoute";
+import Updateprofile from "../Pages/UpdateProfile/Updateprofile";
 
 export const routes = createBrowserRouter([
   {
@@ -23,6 +24,12 @@ export const routes = createBrowserRouter([
           </PrivetRoute>
         ),
         loader: ()=> fetch("https://sabbirhossain-28.github.io/estate-data-json/sagmentData.json"),
+      },
+      {
+        path: "/updateProfile",
+        element: <PrivetRoute>
+          <Updateprofile></Updateprofile>
+        </PrivetRoute>
       },
       {
         path: "/register",
