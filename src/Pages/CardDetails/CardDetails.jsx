@@ -59,7 +59,7 @@ const CardDetails = () => {
             Area:{area}
           </p>
         </div>
-        <div className="col-span-2">
+        <div className="lg:col-span-2 md:col-span-2">
           <p className="text-justify">
             <span className="text-lg font-semibold">Description:</span>
             {description}
