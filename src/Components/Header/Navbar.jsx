@@ -42,10 +42,13 @@ const Navbar = () => {
         <NavLink to="/login">Login</NavLink>
       </li>
       {user && (
-        <li>
+        <li className="mr-3">
           <NavLink to="/updateProfile">Update Profile</NavLink>
         </li>
       )}
+      {user && <li>
+        <NavLink to="/contact">Contact Us</NavLink>
+      </li>}
     </>
   );
   return (
