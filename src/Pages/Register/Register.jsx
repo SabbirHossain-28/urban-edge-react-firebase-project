@@ -1,11 +1,15 @@
-import { useContext } from "react";
+import { useContext, useRef, useState } from "react";
 import { AuthContext } from "../../AuthContextProvider/AuthContextProvider";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
 const Register = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const { createUser, updateUserProfile,userLogout,setReload } = useContext(AuthContext);
   const navigate=useNavigate();
+  const toastId = useRef(null);
 
   const {
     register,
@@ -17,16 +21,40 @@ const Register = () => {
     console.log(data);
     const { email, password, fullname, photoURL } = data;
 
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
+
+    if (
+      (password.length < 6 || !passwordRegex.test(password)) &&
+      !toast.isActive(toastId.current)
+    ) {
+      return (toastId.current = toast.error(
+        "Password must be at least 6 characters long and contain at least one uppercase and one lowercase letter"
+      ));
+    }
+
     createUser(email, password)
       .then((userCredential) => {
         updateUserProfile(fullname, photoURL).then(() => {setReload(true)});
         console.log(userCredential);
-        userLogout();
-        navigate("/login")
+        if(userCredential && !toast.isActive(toastId.current)){
+          toastId.current=toast.success(`Congratulation! You are successfully register your account....Please login now`)
+          userLogout();
+        }
+        setTimeout(() => {
+          navigate("/login");
+        }, 4000);
+        return;
       })
       .catch((error) => {
-        console.error(error);
+        // console.error(error);
+        if(error && !toast.isActive(toastId.current)){
+          toastId.current=toast.error("User is already registered")
+        }
       });
+  };
+
+  const handlePasswordShowToggler = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
@@ -105,25 +133,42 @@ const Register = () => {
                     <span className="text-red-500">This field is required</span>
                   )}
                 </div>
-                <div>
-                  <label
-                    htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="••••••••"
-                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    {...register("password", { required: true })}
-                  />
-                  {errors.password && (
-                    <span className="text-red-500">This field is required</span>
-                  )}
-                </div>
+                <div className="relative">
+                    <label
+                      htmlFor="password"
+                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                    >
+                      Password
+                    </label>
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      name="password"
+                      id="password"
+                      placeholder="••••••••"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                      {...register("password", {
+                        required: {
+                          value: true,
+                          message: "This field is required",
+                        },
+                      })}
+                    />
+                    <span
+                      onClick={handlePasswordShowToggler}
+                      className="absolute right-2 top-10"
+                    >
+                      {showPassword ? (
+                        <IoMdEyeOff className="text-gray-400 text-xl"></IoMdEyeOff>
+                      ) : (
+                        <IoMdEye className="text-gray-400 text-xl "></IoMdEye>
+                      )}
+                    </span>
+                    {errors.password && (
+                      <span className="text-red-500">
+                        {errors.password.message}
+                      </span>
+                    )}
+                  </div>
 
                 <div className="flex items-start"></div>
                 <input
@@ -145,6 +190,7 @@ const Register = () => {
           </div>
         </div>
       </section>
+      <ToastContainer position="top-center" theme="colored" autoClose={4000} />
     </div>
   );
 };

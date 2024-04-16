@@ -9,8 +9,8 @@ import "react-toastify/dist/ReactToastify.css";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const toastId = useRef(null);
-  const location=useLocation();
-  const navigate=useNavigate();
+  const location = useLocation();
+  const navigate = useNavigate();
   console.log(location);
 
   const { userLogin } = useContext(AuthContext);
@@ -42,15 +42,16 @@ const Login = () => {
         console.log(userCredential.user);
         if (userCredential && !toast.isActive(toastId.current)) {
           toastId.current = toast.success("You are successfully logged in");
-          navigate(location?.state? location.state: "/");
-          reset();
-          return;
         }
+        setTimeout(() => {
+          navigate(location?.state ? location.state : "/");
+        }, 4000);
+        reset();
+        return;
       })
       .catch((error) => {
         if (error && !toast.isActive(toastId.current))
           return (toastId.current = toast.error("Invalid email and password"));
-        // error && toast.error("Invalid email and password");
       });
   };
 
