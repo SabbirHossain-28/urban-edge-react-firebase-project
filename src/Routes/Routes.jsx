@@ -7,11 +7,13 @@ import CardDetails from "../Pages/CardDetails/CardDetails";
 import PrivetRoute from "./PrivetRoute";
 import Updateprofile from "../Pages/UpdateProfile/Updateprofile";
 import Contact from "../Pages/Contact/Contact";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 export const routes = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
