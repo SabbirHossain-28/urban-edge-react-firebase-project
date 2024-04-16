@@ -80,7 +80,7 @@ const Navbar = () => {
           </ul>
         </div>
         <a className="btn btn-ghost text-[#BB915B] text-xl md:text-2xl lg:text-3xl font-bold">
-          Estate-Finder
+          Urban-Edge
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">

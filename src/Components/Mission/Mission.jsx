@@ -10,7 +10,7 @@ const Mission = () => {
         <div className=" md:w-1/2 lg:w-1/2  flex items-center text-justify">
           <p className="text-lg text-[#131313B3]">
             <span className="text-3xl text-[#BB915B] font-semibold">
-              Estate Finder
+              Urban-Edge
             </span>{" "}
             is one of the world leading property agents. Our experience spans
             the globe. We have been advising on buying, selling and renting
