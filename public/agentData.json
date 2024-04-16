@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Emily Johnson",
+    "working_experience": "10 years",
+    "rating": 5.0,
+    "skills": ["Negotiation", "Marketing", "Customer Service"],
+    "working_year": 2010,
+    "image": "https://i.ibb.co/ZH9GdxS/ali-morshedlou-WMD64t-Mfc4k-unsplash.jpg"
+  },
+  {
+    "name": "Michael Smith",
+    "working_experience": "7 years",
+    "rating": 4.0,
+    "skills": ["Property Valuation", "Networking", "Contract Management"],
+    "working_year": 2017,
+    "image": "https://i.ibb.co/71fKyFQ/ludovic-migneault-EZ4-TYg-XPNWk-unsplash.jpg"
+  },
+  {
+    "name": "Sophia Rodriguez",
+    "working_experience": "5 years",
+    "rating": 5.0,
+    "skills": ["Client Relations", "Market Analysis", "Property Management"],
+    "working_year": 2019,
+    "image": "https://i.ibb.co/HhFNVWK/freestocks-9-UVml-Ib0w-JU-unsplash.jpg"
+  },
+  {
+    "name": "Eliana Duke",
+    "working_experience": "12 years",
+    "rating": 4.0,
+    "skills": ["Investment Analysis", "Real Estate Law", "Project Management"],
+    "working_year": 2008,
+    "image": "https://i.ibb.co/9cDxHkL/clay-elliot-mp-DV4xa-FP8c-unsplash.jpg"
+  }
+]

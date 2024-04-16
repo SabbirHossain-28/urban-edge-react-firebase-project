@@ -3,7 +3,8 @@ import { AuthContext } from "../../AuthContextProvider/AuthContextProvider";
 import { useForm } from "react-hook-form";
 
 const ProfileCrad = () => {
-  const { user,updateUserProfile,setReload,reload } = useContext(AuthContext);
+  const { user, updateUserProfile, setReload, reload } =
+    useContext(AuthContext);
 
   const {
     register,
@@ -14,15 +15,13 @@ const ProfileCrad = () => {
 
   const onSubmit = (data) => {
     console.log(data);
-    const {fullname,photoURL}=data;
+    const { fullname, photoURL } = data;
 
-    updateUserProfile(fullname,photoURL)
-    .then(()=>{
-        console.log("User data updated successfully");
-        setReload(!reload);
-        reset();
-
-    })
+    updateUserProfile(fullname, photoURL).then(() => {
+      console.log("User data updated successfully");
+      setReload(!reload);
+      reset();
+    });
   };
 
   return (

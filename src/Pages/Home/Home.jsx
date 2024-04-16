@@ -3,6 +3,7 @@ import CategoryCards from "../../Components/CategoryCards/CategoryCards";
 import HomeBanner from "../../Components/HomeBanner/HomeBanner";
 import Menubar from "../../Components/Menubar/Menubar";
 import Mission from "../../Components/Mission/Mission";
+import TopAgents from "../../Components/TopAgents/TopAgents";
 
 const Home = () => {
   const scrollToCategoryCards = () => {
@@ -20,6 +21,7 @@ const Home = () => {
       <Menubar></Menubar>
       <Mission></Mission>
       <CategoryCards cardsContainerRef={cardsContainerRef}></CategoryCards>
+      <TopAgents></TopAgents>
     </div>
   );
 };
