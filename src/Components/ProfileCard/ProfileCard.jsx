@@ -1,10 +1,12 @@
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { AuthContext } from "../../AuthContextProvider/AuthContextProvider";
 import { useForm } from "react-hook-form";
+import { ToastContainer, toast } from "react-toastify";
 
 const ProfileCrad = () => {
   const { user, updateUserProfile, setReload, reload } =
     useContext(AuthContext);
+  const toastId = useRef(null);
 
   const {
     register,
@@ -14,11 +16,12 @@ const ProfileCrad = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     const { fullname, photoURL } = data;
 
     updateUserProfile(fullname, photoURL).then(() => {
-      console.log("User data updated successfully");
+      if (!toast.isActive(toastId.current)) {
+        toastId.current = toast.success("User profile updated successfully");
+      }
       setReload(!reload);
       reset();
     });
@@ -26,7 +29,6 @@ const ProfileCrad = () => {
 
   return (
     <div className="mx-auto mt-10 mb-12 max-w-[350px] space-y-3 rounded-2xl bg-white px-6 py-6 shadow-md dark:bg-slate-200 md:max-w-[600px] md:max-h-[600px] ">
-      {/* profile image & bg  */}
       <div className="relative ">
         <img
           className="h-[200px] w-[600px] rounded-2xl bg-gray-500"
@@ -39,12 +41,10 @@ const ProfileCrad = () => {
           alt="User profilePhoto"
         />
       </div>
-      {/* profile name & role */}
       <div className="space-y-1 pt-8 text-center">
         <h1 className="text-xl md:text-2xl">{user?.displayName}</h1>
         <p className="text-sm text-gray-500">{user?.email}</p>
       </div>
-      {/* post , followers following  */}
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col p-4 space-y-2"
@@ -95,6 +95,7 @@ const ProfileCrad = () => {
           />
         </div>
       </form>
+      <ToastContainer position="top-center" theme="colored" autoClose={4000} />
     </div>
   );
 };

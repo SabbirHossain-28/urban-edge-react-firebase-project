@@ -19,7 +19,6 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     const { email, password, fullname, photoURL } = data;
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
@@ -38,7 +37,6 @@ const Register = () => {
         updateUserProfile(fullname, photoURL).then(() => {
           setReload(true);
         });
-        console.log(userCredential);
         if (userCredential && !toast.isActive(toastId.current)) {
           toastId.current = toast.success(
             `Congratulation! You are successfully register your account....Please login now`
@@ -51,7 +49,6 @@ const Register = () => {
         return;
       })
       .catch((error) => {
-        // console.error(error);
         if (error && !toast.isActive(toastId.current)) {
           toastId.current = toast.error("User is already registered");
         }

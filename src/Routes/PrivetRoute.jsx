@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 const PrivetRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
   const location = useLocation();
-  console.log(location.pathname);
 
   if (loading) {
     return (

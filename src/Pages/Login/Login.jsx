@@ -13,7 +13,6 @@ const Login = () => {
   const toastId = useRef(null);
   const location = useLocation();
   const navigate = useNavigate();
-  console.log(location);
 
   const { userLogin, signinWithGoogle, signinWithGithub } =
     useContext(AuthContext);
@@ -26,7 +25,6 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     const { email, password } = data;
 
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).+$/;
@@ -42,7 +40,6 @@ const Login = () => {
 
     userLogin(email, password)
       .then((userCredential) => {
-        console.log(userCredential.user);
         if (userCredential && !toast.isActive(toastId.current)) {
           toastId.current = toast.success("You are successfully logged in");
         }
@@ -200,12 +197,12 @@ const Login = () => {
                     </div>
                   </div>
                   <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                    Already have an account?
+                    If you are new here?Please
                     <Link
-                      to="/login"
+                      to="/register"
                       className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                     >
-                      Login here
+                      Register Account First
                     </Link>
                   </p>
                 </div>

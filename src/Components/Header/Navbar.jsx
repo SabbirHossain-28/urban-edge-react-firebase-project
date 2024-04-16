@@ -6,7 +6,6 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 const Navbar = () => {
   const { user, userLogout, loading } = useContext(AuthContext);
   const [initialLoading, setInitialLoading] = useState(true);
-  console.log(user);
   useEffect(() => {
     if (!loading) {
       setInitialLoading(false);
@@ -35,12 +34,12 @@ const Navbar = () => {
       <li className="mr-4">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink to="/register">Register</NavLink>
       </li>
       <li>
         <NavLink to="/login">Login</NavLink>
-      </li>
+      </li> */}
       {user && (
         <li className="mr-3">
           <NavLink to="/updateProfile">Update Profile</NavLink>
