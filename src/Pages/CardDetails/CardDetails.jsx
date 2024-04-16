@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useParams, useLoaderData } from "react-router-dom";
 
 const CardDetails = () => {
@@ -20,6 +21,9 @@ const CardDetails = () => {
   } = selectedCategoryData;
   return (
     <div className="mt-12 mb-12">
+      <Helmet>
+        <title>Category | {segment_name}</title>
+      </Helmet>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 bg-slate-200 p-6 rounded-md gap-4">
         <div>
           <h2 className="text-2xl font-semibold mb-3">{estate_title}</h2>

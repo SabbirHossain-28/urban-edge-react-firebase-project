@@ -7,6 +7,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -99,6 +100,9 @@ const Login = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>User | Login</title>
+      </Helmet>
       <div>
         <section className="bg-gray-50 dark:bg-slate-200 py-8 my-12 rounded-md">
           <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">

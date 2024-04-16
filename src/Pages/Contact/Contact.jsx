@@ -1,6 +1,11 @@
+import { Helmet } from "react-helmet-async";
+
 const Contact = () => {
   return (
     <div>
+      <Helmet>
+        <title>UrbanEdge | Contact-Us</title>
+      </Helmet>
       <h2 className="text-4xl text-center mt-12 font-semibold">
         Contact With Us
       </h2>

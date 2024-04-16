@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -61,6 +62,9 @@ const Register = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>User | User-Registration</title>
+      </Helmet>
       <section className="bg-gray-50 dark:bg-slate-200 py-8 my-12 rounded-md">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
           <a

@@ -4,6 +4,7 @@ import HomeBanner from "../../Components/HomeBanner/HomeBanner";
 import Menubar from "../../Components/Menubar/Menubar";
 import Mission from "../../Components/Mission/Mission";
 import TopAgents from "../../Components/TopAgents/TopAgents";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const scrollToCategoryCards = () => {
@@ -17,6 +18,9 @@ const Home = () => {
   const cardsContainerRef = useRef(null);
   return (
     <div>
+      <Helmet>
+        <title>UrbanEdge | Home</title>
+      </Helmet>
       <HomeBanner scrollToCategoryCards={scrollToCategoryCards}></HomeBanner>
       <Menubar></Menubar>
       <Mission></Mission>
