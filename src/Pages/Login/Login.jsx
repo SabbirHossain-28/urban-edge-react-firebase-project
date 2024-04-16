@@ -15,7 +15,7 @@ const Login = () => {
   const navigate = useNavigate();
   console.log(location);
 
-  const { userLogin,signinWithGoogle } = useContext(AuthContext);
+  const { userLogin,signinWithGoogle,signinWithGithub } = useContext(AuthContext);
 
   const {
     register,
@@ -56,6 +56,40 @@ const Login = () => {
           return (toastId.current = toast.error("Invalid email and password"));
       });
   };
+
+  const handleGoogleLogin=()=>{
+    signinWithGoogle()
+    .then((userCredential)=>{
+      if(userCredential && !toast.isActive(toastId.current)){
+        toastId.current=toast.success("You are log in with Google successfully")
+      }
+      setTimeout(() => {
+        navigate(location?.state ? location.state:"/")
+      }, 3000);
+    })
+    .catch(error=>{
+      if(error && toast.isActive(toastId.current)){
+        toast.current=toast.error("This Google account is already used")
+      }
+    })
+  }
+
+  const handleGithubLogin=()=>{
+    signinWithGithub()
+    .then((userCredential)=>{
+      if(userCredential && !toast.isActive(toastId.current)){
+        toastId.current=toast.success("You are log in with Github successfully")
+      }
+      setTimeout(() => {
+        navigate(location?.state ? location.state:"/")
+      }, 3000);
+    })
+    .catch(error=>{
+      if(error && !toast.isActive(toastId.current)){
+        toastId.current=toast.error("This Github account is already used")
+      }
+    })
+  }
 
   const handlePasswordShowToggler = () => {
     setShowPassword(!showPassword);
@@ -152,10 +186,10 @@ const Login = () => {
                     <p className="text-white text-center">OR</p>
                     <p className="text-white text-center">Sign Up With</p>
                     <div className="flex justify-center gap-4">
-                      <button onClick={()=>signinWithGoogle()} className="btn">
+                      <button onClick={handleGoogleLogin} className="btn">
                         <FcGoogle></FcGoogle>Google
                       </button>
-                      <button className="btn">
+                      <button onClick={handleGithubLogin} className="btn">
                         <FaGithub></FaGithub>Github
                       </button>
                     </div>
