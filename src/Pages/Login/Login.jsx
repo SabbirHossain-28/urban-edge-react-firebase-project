@@ -5,6 +5,8 @@ import { AuthContext } from "../../AuthContextProvider/AuthContextProvider";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -13,7 +15,7 @@ const Login = () => {
   const navigate = useNavigate();
   console.log(location);
 
-  const { userLogin } = useContext(AuthContext);
+  const { userLogin,signinWithGoogle } = useContext(AuthContext);
 
   const {
     register,
@@ -62,11 +64,11 @@ const Login = () => {
   return (
     <div>
       <div>
-        <section className="bg-gray-50 dark:bg-gray-900 py-8 my-12 rounded-md">
+        <section className="bg-gray-50 dark:bg-slate-200 py-8 my-12 rounded-md">
           <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
             <a
               href="#"
-              className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+              className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-black"
             >
               Login here to explore
             </a>
@@ -144,16 +146,30 @@ const Login = () => {
                     type="submit"
                     value="Login"
                   />
+                </form>
+                <div>
+                  <div className="space-y-2 mb-6">
+                    <p className="text-white text-center">OR</p>
+                    <p className="text-white text-center">Sign Up With</p>
+                    <div className="flex justify-center gap-4">
+                      <button onClick={()=>signinWithGoogle()} className="btn">
+                        <FcGoogle></FcGoogle>Google
+                      </button>
+                      <button className="btn">
+                        <FaGithub></FaGithub>Github
+                      </button>
+                    </div>
+                  </div>
                   <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                    New here? Please
+                    Already have an account?
                     <Link
-                      to="/register"
+                      to="/login"
                       className="font-medium text-primary-600 hover:underline dark:text-primary-500"
                     >
-                      Register an account
+                      Login here
                     </Link>
                   </p>
-                </form>
+                </div>
               </div>
             </div>
           </div>

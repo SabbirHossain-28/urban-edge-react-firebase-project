@@ -7,8 +7,9 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const { createUser, updateUserProfile,userLogout,setReload } = useContext(AuthContext);
-  const navigate=useNavigate();
+  const { createUser, updateUserProfile, userLogout, setReload } =
+    useContext(AuthContext);
+  const navigate = useNavigate();
   const toastId = useRef(null);
 
   const {
@@ -34,10 +35,14 @@ const Register = () => {
 
     createUser(email, password)
       .then((userCredential) => {
-        updateUserProfile(fullname, photoURL).then(() => {setReload(true)});
+        updateUserProfile(fullname, photoURL).then(() => {
+          setReload(true);
+        });
         console.log(userCredential);
-        if(userCredential && !toast.isActive(toastId.current)){
-          toastId.current=toast.success(`Congratulation! You are successfully register your account....Please login now`)
+        if (userCredential && !toast.isActive(toastId.current)) {
+          toastId.current = toast.success(
+            `Congratulation! You are successfully register your account....Please login now`
+          );
           userLogout();
         }
         setTimeout(() => {
@@ -47,8 +52,8 @@ const Register = () => {
       })
       .catch((error) => {
         // console.error(error);
-        if(error && !toast.isActive(toastId.current)){
-          toastId.current=toast.error("User is already registered")
+        if (error && !toast.isActive(toastId.current)) {
+          toastId.current = toast.error("User is already registered");
         }
       });
   };
@@ -59,11 +64,11 @@ const Register = () => {
 
   return (
     <div>
-      <section className="bg-gray-50 dark:bg-gray-900 py-8 my-12 rounded-md">
+      <section className="bg-gray-50 dark:bg-slate-200 py-8 my-12 rounded-md">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
           <a
             href="#"
-            className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white"
+            className="flex items-center mb-6 text-2xl font-semibold dark:text-black"
           >
             Register Your Account Here
           </a>
@@ -134,41 +139,41 @@ const Register = () => {
                   )}
                 </div>
                 <div className="relative">
-                    <label
-                      htmlFor="password"
-                      className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                      Password
-                    </label>
-                    <input
-                      type={showPassword ? "text" : "password"}
-                      name="password"
-                      id="password"
-                      placeholder="••••••••"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      {...register("password", {
-                        required: {
-                          value: true,
-                          message: "This field is required",
-                        },
-                      })}
-                    />
-                    <span
-                      onClick={handlePasswordShowToggler}
-                      className="absolute right-2 top-10"
-                    >
-                      {showPassword ? (
-                        <IoMdEyeOff className="text-gray-400 text-xl"></IoMdEyeOff>
-                      ) : (
-                        <IoMdEye className="text-gray-400 text-xl "></IoMdEye>
-                      )}
-                    </span>
-                    {errors.password && (
-                      <span className="text-red-500">
-                        {errors.password.message}
-                      </span>
+                  <label
+                    htmlFor="password"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  >
+                    Password
+                  </label>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    id="password"
+                    placeholder="••••••••"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    {...register("password", {
+                      required: {
+                        value: true,
+                        message: "This field is required",
+                      },
+                    })}
+                  />
+                  <span
+                    onClick={handlePasswordShowToggler}
+                    className="absolute right-2 top-10"
+                  >
+                    {showPassword ? (
+                      <IoMdEyeOff className="text-gray-400 text-xl"></IoMdEyeOff>
+                    ) : (
+                      <IoMdEye className="text-gray-400 text-xl "></IoMdEye>
                     )}
-                  </div>
+                  </span>
+                  {errors.password && (
+                    <span className="text-red-500">
+                      {errors.password.message}
+                    </span>
+                  )}
+                </div>
 
                 <div className="flex items-start"></div>
                 <input
@@ -176,16 +181,16 @@ const Register = () => {
                   type="submit"
                   value="Create an account"
                 />
-                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                  Already have an account?
-                  <Link
-                    to="/login"
-                    className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                  >
-                    Login here
-                  </Link>
-                </p>
               </form>
+              <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                Already have an account?
+                <Link
+                  to="/login"
+                  className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                >
+                  Login here
+                </Link>
+              </p>
             </div>
           </div>
         </div>

@@ -40,7 +40,7 @@ const HomeBanner = ({scrollToCategoryCards}) => {
     },
   ];
   return (
-    <div className="mt-14 mb-12">
+    <div className="mt-14 mb-10">
       <Swiper
         slidesPerView={1}
         spaceBetween={30}

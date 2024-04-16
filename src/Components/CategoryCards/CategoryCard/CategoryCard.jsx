@@ -8,7 +8,7 @@ const CategoryCard = ({data}) => {
     <div>
       <div className="card card-compact bg-base-100 shadow-2xl">
         <div className="p-4">
-          <figure className="bg-[#F3F3F3] lg:p-8 rounded-lg">
+          <figure className="bg-slate-200 lg:p-8 rounded-lg">
             <img className="w-full h-60 rounded-lg" src={image} alt="book-image " />
           </figure>
           <div className="mt-6 flex gap-2 font-work font-medium justify-center">

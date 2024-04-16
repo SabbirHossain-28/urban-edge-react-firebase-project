@@ -17,7 +17,7 @@ const Navbar = () => {
       return <span className="loading loading-spinner loading-lg"></span>; // Show spinner during initial loading
     } else if (user) {
       return (
-        <p className="bg-green-500 text-white rounded-md p-2">
+        <p className="bg-green-500 text-white rounded-md p-1 md:p-2 lg:p-2">
           <Link onClick={() => userLogout()}>Logout</Link>
         </p>
       );
@@ -52,7 +52,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-slate-200 mt-4 rounded-md">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -73,19 +73,19 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content  z-[2] p-2 shadow bg-base-100 rounded-box w-48 "
           >
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-[#BB915B] text-3xl font-bold">
+        <a className="btn btn-ghost text-[#BB915B] text-xl md:text-2xl lg:text-3xl font-bold">
           Estate-Finder
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      <div className="navbar-end gap-2">
+      <div className="navbar-end gap-2 pr-6">
         <div>
           <div>{renderLoginButton()}</div>
         </div>

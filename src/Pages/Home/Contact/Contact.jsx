@@ -2,7 +2,7 @@ const Contact = () => {
   return (
     <div>
         <h2 className="text-4xl text-center mt-12 font-semibold">Contact With Us</h2>
-      <div className="bg-[#1313130D] flex flex-col md:flex-row lg:flex-row gap-4 p-8 mt-8 mb-12 rounded-lg">
+      <div className="bg-slate-200 flex flex-col md:flex-row lg:flex-row gap-4 p-8 mt-8 mb-12 rounded-lg">
         <div className="md:w-1/2 lg:w-1/2">
           <h2 className="text-2xl font-semibold mb-4">Send Message</h2>
           <form className="mb-4">

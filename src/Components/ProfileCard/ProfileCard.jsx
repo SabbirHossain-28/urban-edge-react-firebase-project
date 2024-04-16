@@ -25,7 +25,7 @@ const ProfileCrad = () => {
   };
 
   return (
-    <div className="mx-auto mt-10 mb-12 max-w-[350px] space-y-3 rounded-2xl bg-white px-6 py-6 shadow-md dark:bg-[#21213a] md:max-w-[600px] md:max-h-[600px] ">
+    <div className="mx-auto mt-10 mb-12 max-w-[350px] space-y-3 rounded-2xl bg-white px-6 py-6 shadow-md dark:bg-slate-200 md:max-w-[600px] md:max-h-[600px] ">
       {/* profile image & bg  */}
       <div className="relative ">
         <img
@@ -41,8 +41,8 @@ const ProfileCrad = () => {
       </div>
       {/* profile name & role */}
       <div className="space-y-1 pt-8 text-center">
-        <h1 className="text-white text-xl md:text-2xl">{user?.displayName}</h1>
-        <p className="text-sm text-gray-400">{user?.email}</p>
+        <h1 className="text-xl md:text-2xl">{user?.displayName}</h1>
+        <p className="text-sm text-gray-500">{user?.email}</p>
       </div>
       {/* post , followers following  */}
       <form
@@ -52,7 +52,7 @@ const ProfileCrad = () => {
         <div>
           <label
             htmlFor="name"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700"
           >
             Your full name
           </label>
@@ -71,7 +71,7 @@ const ProfileCrad = () => {
         <div>
           <label
             htmlFor="photoURL"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700"
           >
             Your photo URL
           </label>
@@ -89,7 +89,7 @@ const ProfileCrad = () => {
         </div>
         <div className="flex justify-center">
           <input
-            className="w-full text-white bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+            className="w-full text-gray-700 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
             type="submit"
             value="Update Profile"
           />
