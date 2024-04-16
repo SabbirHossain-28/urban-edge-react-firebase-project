@@ -5,10 +5,10 @@ const AgentCard = ({ data }) => {
     data;
 
   const getCheckedStars = () => {
-    const roundedRating = Math.round(rating); 
-    const checkedStars = Array(5).fill(false); 
+    const roundedRating = Math.round(rating);
+    const checkedStars = Array(5).fill(false);
     for (let i = 0; i < roundedRating; i++) {
-      checkedStars[i] = true; 
+      checkedStars[i] = true;
     }
     return checkedStars;
   };
@@ -25,10 +25,7 @@ const AgentCard = ({ data }) => {
         </p>
         <ul className="mb-3">
           {skills.map((data, idx) => (
-            <li
-              key={idx}
-              className=" text-[#131313CC] text-base font-normal "
-            >
+            <li key={idx} className=" text-[#131313CC] text-base font-normal ">
               {data}
             </li>
           ))}
@@ -46,7 +43,9 @@ const AgentCard = ({ data }) => {
           </span>
         </p>
         <div className="">
-            <p className="text-[#131313] text-lg font-semibold">Rating: <span>{rating}</span></p>
+          <p className="text-[#131313] text-lg font-semibold">
+            Rating: <span>{rating}</span>
+          </p>
           <div className="rating">
             {getCheckedStars().map((checked, idx) => (
               <input

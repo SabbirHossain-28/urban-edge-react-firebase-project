@@ -46,9 +46,11 @@ const Navbar = () => {
           <NavLink to="/updateProfile">Update Profile</NavLink>
         </li>
       )}
-      {user && <li>
-        <NavLink to="/contact">Contact Us</NavLink>
-      </li>}
+      {user && (
+        <li>
+          <NavLink to="/contact">Contact Us</NavLink>
+        </li>
+      )}
     </>
   );
   return (

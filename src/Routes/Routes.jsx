@@ -6,7 +6,7 @@ import Login from "../Pages/Login/Login";
 import CardDetails from "../Pages/CardDetails/CardDetails";
 import PrivetRoute from "./PrivetRoute";
 import Updateprofile from "../Pages/UpdateProfile/Updateprofile";
-import Contact from "../Pages/Home/Contact/Contact";
+import Contact from "../Pages/Contact/Contact";
 
 export const routes = createBrowserRouter([
   {

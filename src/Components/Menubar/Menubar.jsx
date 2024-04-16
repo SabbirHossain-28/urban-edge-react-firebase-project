@@ -2,7 +2,10 @@ const Menubar = () => {
   return (
     <div className="mb-24 bg-slate-200 border p-6 rounded-md">
       <div className="flex flex-col md:flex-row lg:flex-row gap-4">
-        <select defaultValue="" className="select select-bordered w-full max-w-sm">
+        <select
+          defaultValue=""
+          className="select select-bordered w-full max-w-sm"
+        >
           <option disabled value="">
             Property Types
           </option>
@@ -12,7 +15,10 @@ const Menubar = () => {
           <option value="industrial">Industrial</option>
           <option value="restaurants">Restaurants</option>
         </select>
-        <select defaultValue="" className="select select-bordered w-full max-w-sm">
+        <select
+          defaultValue=""
+          className="select select-bordered w-full max-w-sm"
+        >
           <option disabled value="">
             Price
           </option>

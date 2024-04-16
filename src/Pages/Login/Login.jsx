@@ -15,7 +15,8 @@ const Login = () => {
   const navigate = useNavigate();
   console.log(location);
 
-  const { userLogin,signinWithGoogle,signinWithGithub } = useContext(AuthContext);
+  const { userLogin, signinWithGoogle, signinWithGithub } =
+    useContext(AuthContext);
 
   const {
     register,
@@ -57,39 +58,43 @@ const Login = () => {
       });
   };
 
-  const handleGoogleLogin=()=>{
+  const handleGoogleLogin = () => {
     signinWithGoogle()
-    .then((userCredential)=>{
-      if(userCredential && !toast.isActive(toastId.current)){
-        toastId.current=toast.success("You are log in with Google successfully")
-      }
-      setTimeout(() => {
-        navigate(location?.state ? location.state:"/")
-      }, 3000);
-    })
-    .catch(error=>{
-      if(error && toast.isActive(toastId.current)){
-        toast.current=toast.error("This Google account is already used")
-      }
-    })
-  }
+      .then((userCredential) => {
+        if (userCredential && !toast.isActive(toastId.current)) {
+          toastId.current = toast.success(
+            "You are log in with Google successfully"
+          );
+        }
+        setTimeout(() => {
+          navigate(location?.state ? location.state : "/");
+        }, 3000);
+      })
+      .catch((error) => {
+        if (error && toast.isActive(toastId.current)) {
+          toast.current = toast.error("This Google account is already used");
+        }
+      });
+  };
 
-  const handleGithubLogin=()=>{
+  const handleGithubLogin = () => {
     signinWithGithub()
-    .then((userCredential)=>{
-      if(userCredential && !toast.isActive(toastId.current)){
-        toastId.current=toast.success("You are log in with Github successfully")
-      }
-      setTimeout(() => {
-        navigate(location?.state ? location.state:"/")
-      }, 3000);
-    })
-    .catch(error=>{
-      if(error && !toast.isActive(toastId.current)){
-        toastId.current=toast.error("This Github account is already used")
-      }
-    })
-  }
+      .then((userCredential) => {
+        if (userCredential && !toast.isActive(toastId.current)) {
+          toastId.current = toast.success(
+            "You are log in with Github successfully"
+          );
+        }
+        setTimeout(() => {
+          navigate(location?.state ? location.state : "/");
+        }, 3000);
+      })
+      .catch((error) => {
+        if (error && !toast.isActive(toastId.current)) {
+          toastId.current = toast.error("This Github account is already used");
+        }
+      });
+  };
 
   const handlePasswordShowToggler = () => {
     setShowPassword(!showPassword);
