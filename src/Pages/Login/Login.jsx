@@ -66,7 +66,7 @@ const Login = () => {
         }
         setTimeout(() => {
           navigate(location?.state ? location.state : "/");
-        }, 3000);
+        }, 1000);
       })
       .catch((error) => {
         if (error && toast.isActive(toastId.current)) {
@@ -85,7 +85,7 @@ const Login = () => {
         }
         setTimeout(() => {
           navigate(location?.state ? location.state : "/");
-        }, 3000);
+        }, 1000);
       })
       .catch((error) => {
         if (error && !toast.isActive(toastId.current)) {
