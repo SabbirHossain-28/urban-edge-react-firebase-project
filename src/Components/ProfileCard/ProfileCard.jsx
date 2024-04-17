@@ -36,7 +36,7 @@ const ProfileCrad = () => {
           alt="User profilePhoto"
         />
       </div>
-      <div className="space-y-1 pt-8 text-center">
+      <div className="space-y-1  text-center">
         <h1 data-aos="fade-down-right" data-aos-duration="500" className="text-xl md:text-2xl">{user?.displayName}</h1>
         <p data-aos="fade-down-left" data-aos-duration="500" className="text-sm text-gray-500">{user?.email}</p>
         <p data-aos="fade-down-right" data-aos-duration="500" className="text-sm text-gray-500 break-all">{user?.photoURL}</p>
