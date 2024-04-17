@@ -25,7 +25,7 @@ const CategoryCard = ({ data }) => {
           </div>
         </div>
         <div className="p-4">
-          <div className="mb-5 flex flex-col items-center h-24">
+          <div className="mb-5 flex flex-col justify-center items-center h-24">
             <h2 className="card-title text-[#131313] font-playfair text-xl font-bold">
               {estate_title}
             </h2>
