@@ -11,36 +11,32 @@ const ProfileCrad = () => {
   const {
     register,
     handleSubmit,
+    formState: { errors },
     reset,
   } = useForm();
 
   const onSubmit = (data) => {
     const { fullname, photoURL } = data;
 
-    if (!fullname && !photoURL && !toast.isActive(toastId.current)) {
-      toastId.current = toast.error("Please fill at least one input field");
-    }
-
     updateUserProfile(fullname, photoURL).then(() => {
       if (!toast.isActive(toastId.current)) {
         toastId.current = toast.success("User profile updated successfully");
-        setReload(!reload);
-        reset();
       }
+      setReload(!reload);
+      reset();
     });
   };
 
   return (
-    <div  className="mx-auto mt-10 mb-12 max-w-[350px] space-y-3 rounded-2xl bg-slate-200 px-6 py-6 shadow-md dark:bg-slate-200 md:max-w-[600px] md:max-h-[600px] ">
-      <div className=" flex justify-center">
-        
+    <div  className="mx-auto mt-10 mb-12 max-w-[350px] space-y-3 rounded-2xl bg-white px-6 py-6 shadow-md dark:bg-slate-200 md:max-w-[600px] md:max-h-[600px] ">
+      <div className=" flex justify-center ">
         <img 
-          className="  h-[150px] w-[150px]  rounded-full border-4 border-white bg-gray-400 dark:border-[#18181B]"
+          className=" h-[150px] w-[150px]  rounded-full border-4 border-white bg-gray-400 dark:border-[#18181B]"
           src={user?.photoURL}
           alt="User profilePhoto"
         />
       </div>
-      <div className="space-y-1 pt-2 text-center">
+      <div className="space-y-1 pt-8 text-center">
         <h1 data-aos="fade-down-right" data-aos-duration="500" className="text-xl md:text-2xl">{user?.displayName}</h1>
         <p data-aos="fade-down-left" data-aos-duration="500" className="text-sm text-gray-500">{user?.email}</p>
         <p data-aos="fade-down-right" data-aos-duration="500" className="text-sm text-gray-500 break-all">{user?.photoURL}</p>
@@ -62,8 +58,11 @@ const ProfileCrad = () => {
             id="name"
             className=" bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Full-name"
-            {...register("fullname")}
+            {...register("fullname", { required: true })}
           />
+          {errors.fullname && (
+            <span className="text-red-500">This field is required</span>
+          )}
         </div>
         <div>
           <label data-aos="fade-right" data-aos-delay="700" data-aos-duration="500"
@@ -78,8 +77,11 @@ const ProfileCrad = () => {
             id="photoURL"
             className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Photo-URL"
-            {...register("photoURL")}
+            {...register("photoURL", { required: true })}
           />
+          {errors.photoURL && (
+            <span className="text-red-500">This field is required</span>
+          )}
         </div>
         <div className="flex justify-center">
           <input data-aos="zoom-in-up"  data-aos-duration="500"
