@@ -6,6 +6,7 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 const Navbar = () => {
   const { user, userLogout, loading } = useContext(AuthContext);
   const [initialLoading, setInitialLoading] = useState(true);
+  console.log(user);
   useEffect(() => {
     if (!loading) {
       setInitialLoading(false);

@@ -44,7 +44,7 @@ const ProfileCrad = () => {
       <div className="space-y-1 pt-8 text-center">
         <h1 data-aos="fade-down-right" data-aos-duration="500" className="text-xl md:text-2xl">{user?.displayName}</h1>
         <p data-aos="fade-down-left" data-aos-duration="500" className="text-sm text-gray-500">{user?.email}</p>
-        <p data-aos="fade-down-right" data-aos-duration="500" className="text-sm text-gray-500">{user?.photoURL}</p>
+        <p data-aos="fade-down-right" data-aos-duration="500" className="text-sm text-gray-500 break-all">{user?.photoURL}</p>
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}

@@ -25,12 +25,14 @@ const AuthContextProvider = ({ children }) => {
   // Google sign in
   const googleProvider = new GoogleAuthProvider();
   const signinWithGoogle = () => {
+    setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
 
   // Github sign in
   const githubProvider = new GithubAuthProvider();
   const signinWithGithub = () => {
+    setLoading(true);
     return signInWithPopup(auth, githubProvider);
   };
 
@@ -40,6 +42,7 @@ const AuthContextProvider = ({ children }) => {
   };
 
   const updateUserProfile = (fullname, photoURL) => {
+    // setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: fullname,
       photoURL: photoURL,

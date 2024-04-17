@@ -26,11 +26,11 @@ const CategoryCard = ({ data }) => {
         </div>
         <div className="p-4">
           <div className="mb-5 flex flex-col justify-center items-center h-24">
-            <h2 className="card-title text-[#131313] font-playfair text-xl font-bold">
+            <h2 className="card-title text-[#131313] text-center font-playfair text-xl font-bold">
               {estate_title}
             </h2>
-            <p className="text-[#131313CC] font-work font-medium flex items-center gap-2">
-              <GrMapLocation className="text-lg text-[#BB915B]"></GrMapLocation>
+            <p className="text-[#131313CC] text-center font-work font-medium flex flex-col lg:flex-row items-center gap-2">
+              <GrMapLocation className="text-2xl  text-[#BB915B]"></GrMapLocation>
               <span className="text-lg">Location: {location}</span>
             </p>
           </div>
