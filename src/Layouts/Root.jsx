@@ -7,7 +7,7 @@ AOS.init();
 
 const Root = () => {
   return (
-    <div className="max-w-sm md:max-w-7xl lg:max-w-7xl mx-auto font-popin ">
+    <div className="max-w-sm md:p-4 md:max-w-7xl lg:max-w-7xl mx-auto font-popin overflow-x-hidden">
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer></Footer>

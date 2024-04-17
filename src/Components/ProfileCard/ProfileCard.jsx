@@ -28,7 +28,7 @@ const ProfileCrad = () => {
   };
 
   return (
-    <div className="mx-auto mt-10 mb-12 max-w-[350px] space-y-3 rounded-2xl bg-white px-6 py-6 shadow-md dark:bg-slate-200 md:max-w-[600px] md:max-h-[600px] ">
+    <div  className="mx-auto mt-10 mb-12 max-w-[350px] space-y-3 rounded-2xl bg-white px-6 py-6 shadow-md dark:bg-slate-200 md:max-w-[600px] md:max-h-[600px] ">
       <div className="relative ">
         <img data-aos="flip-up" data-aos-duration="500"
           className="h-[200px] w-[600px] rounded-2xl bg-gray-500"
@@ -44,6 +44,7 @@ const ProfileCrad = () => {
       <div className="space-y-1 pt-8 text-center">
         <h1 data-aos="fade-down-right" data-aos-duration="500" className="text-xl md:text-2xl">{user?.displayName}</h1>
         <p data-aos="fade-down-left" data-aos-duration="500" className="text-sm text-gray-500">{user?.email}</p>
+        <p data-aos="fade-down-right" data-aos-duration="500" className="text-sm text-gray-500">{user?.photoURL}</p>
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
@@ -56,7 +57,7 @@ const ProfileCrad = () => {
           >
             Your full name
           </label>
-          <input data-aos="fade-left" data-aos-delay="1000" data-aos-duration="500"
+          <input data-aos="fade-left" data-aos-delay="600" data-aos-duration="500"
             type="text"
             name="name"
             id="name"
@@ -69,13 +70,13 @@ const ProfileCrad = () => {
           )}
         </div>
         <div>
-          <label data-aos="fade-right" data-aos-delay="1500" data-aos-duration="500"
+          <label data-aos="fade-right" data-aos-delay="700" data-aos-duration="500"
             htmlFor="photoURL"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700"
           >
             Your photo URL
           </label>
-          <input data-aos="fade-left" data-aos-delay="2000" data-aos-duration="500"
+          <input data-aos="fade-left" data-aos-delay="800" data-aos-duration="500"
             type="text"
             name="photoURL"
             id="photoURL"
