@@ -25,7 +25,7 @@ const CategoryCard = ({ data }) => {
           </div>
         </div>
         <div className="p-4">
-          <div className="mb-5 flex flex-col items-center">
+          <div className="mb-5 flex flex-col items-center h-24">
             <h2 className="card-title text-[#131313] font-playfair text-xl font-bold">
               {estate_title}
             </h2>
@@ -34,6 +34,7 @@ const CategoryCard = ({ data }) => {
               <span className="text-lg">Location: {location}</span>
             </p>
           </div>
+        </div>
           <div className="flex justify-center border-t-2 border-dashed mb-5">
             <Link to={`/cardDetails/${id}`}>
               <button className="text-xl mt-4 w-48 h-14 text-white bg-[#BB915B] overflow-hidden relative z-10 group hover:text-white duration-700 rounded-md">
@@ -46,7 +47,6 @@ const CategoryCard = ({ data }) => {
               </button>
             </Link>
           </div>
-        </div>
       </div>
     </div>
   );
