@@ -65,7 +65,7 @@ const Register = () => {
       <Helmet>
         <title>User | User-Registration</title>
       </Helmet>
-      <section className="bg-gray-50 dark:bg-slate-200 py-8 my-12 rounded-md">
+      <section className="bg-slate-200 dark:bg-slate-200 py-8 my-12 rounded-md">
         <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
           <a
             href="#"

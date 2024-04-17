@@ -104,7 +104,7 @@ const Login = () => {
         <title>User | Login</title>
       </Helmet>
       <div>
-        <section className="bg-gray-50 dark:bg-slate-200 py-8 my-12 rounded-md">
+        <section className="bg-slate-200 dark:bg-slate-200 py-8 my-12 rounded-md">
           <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
             <a
               href="#"
