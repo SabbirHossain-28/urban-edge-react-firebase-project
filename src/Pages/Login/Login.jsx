@@ -189,8 +189,8 @@ const Login = () => {
                 </form>
                 <div>
                   <div className="space-y-2 mb-6">
-                    <p className="text-white text-center">OR</p>
-                    <p className="text-white text-center">Sign Up With</p>
+                    <p className="text-gray-900 dark:text-white text-center">OR</p>
+                    <p className="text-gray-900 dark:text-white text-center">Sign Up With</p>
                     <div className="flex justify-center gap-4">
                       <button onClick={handleGoogleLogin} className="btn">
                         <FcGoogle></FcGoogle>Google
