@@ -2,7 +2,7 @@ import { MdOutlineRealEstateAgent } from "react-icons/md";
 
 const Footer = () => {
   return (
-    <div>
+    <div data-aos="zoom-out-down" data-aos-duration="500">
       <footer className="footer p-10 bg-slate-200 text-base-content">
         <nav>
           <h6 className="footer-title">Services</h6>

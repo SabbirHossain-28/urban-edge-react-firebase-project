@@ -6,11 +6,11 @@ const Contact = () => {
       <Helmet>
         <title>UrbanEdge | Contact-Us</title>
       </Helmet>
-      <h2 className="text-4xl text-center mt-12 font-semibold">
+      <h2 data-aos="zoom-in-down" data-aos-duration="500" className="text-4xl text-center mt-12 font-semibold">
         Contact With Us
       </h2>
-      <div className="bg-slate-200 flex flex-col md:flex-row lg:flex-row gap-4 p-8 mt-8 mb-12 rounded-lg">
-        <div className="md:w-1/2 lg:w-1/2">
+      <div data-aos="zoom-out-down" data-aos-delay="500" data-duration="1000" className="bg-slate-200 flex flex-col md:flex-row lg:flex-row gap-4 p-8 mt-8 mb-12 rounded-lg">
+        <div data-aos="zoom-out-right" data-aos-delay="1000" data-aos-duration="500" className="md:w-1/2 lg:w-1/2">
           <h2 className="text-2xl font-semibold mb-4">Send Message</h2>
           <form className="mb-4">
             <div className="flex flex-col md:flex-row lg:flex-row gap-2 mb-3">
@@ -55,7 +55,8 @@ const Contact = () => {
             ></textarea>
           </form>
 
-          <button
+          <button data-aos="fade-up"
+     data-aos-anchor-placement="top-bottom" data-aos-delay="2000"
             className="border px-10 py-2 text-lg text-white font-semibold bg-[#9e7d54]"
             onClick={() => document.getElementById("my_modal_5").showModal()}
           >
@@ -76,7 +77,7 @@ const Contact = () => {
             </div>
           </dialog>
         </div>
-        <div className="md:w-1/2 lg:w-1/2">
+        <div data-aos="zoom-out-left" data-aos-delay="1500" data-aos-duration="500" className="md:w-1/2 lg:w-1/2">
           <h2 className="text-2xl font-semibold mb-4">Get In Touch</h2>
           <div className="mb-4">
             <p className="text-[#131313] text-lg font-medium mb-1">

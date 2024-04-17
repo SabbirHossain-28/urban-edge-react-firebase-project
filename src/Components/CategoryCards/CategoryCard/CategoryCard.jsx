@@ -3,10 +3,10 @@ import { GrMapLocation } from "react-icons/gr";
 import { Link } from "react-router-dom";
 
 const CategoryCard = ({ data }) => {
-  const { id, image, price, status, estate_title, location } = data;
+  const { id, image, price, status, estate_title, location,animation,duration,easing } = data;
   return (
     <div>
-      <div className="card card-compact bg-base-100 shadow-2xl">
+      <div data-aos={animation}  data-aos-duration={duration} data-aos-easing={easing} className="card card-compact bg-base-100 shadow-2xl">
         <div className="p-4">
           <figure className="bg-slate-200 lg:p-8 rounded-lg">
             <img

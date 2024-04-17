@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 const AgentCard = ({ data }) => {
-  const { image, name, skills, working_experience, working_year, rating } =
+  const { image, name, skills, working_experience, working_year, rating,animation,duration,easing } =
     data;
 
   const getCheckedStars = () => {
@@ -14,7 +14,7 @@ const AgentCard = ({ data }) => {
   };
 
   return (
-    <div className="bg-[#F3F3F3] p-2 rounded-lg shadow-lg lg:flex items-center justify-center gap-6">
+    <div data-aos={animation} data-aos-duration={duration} data-aos-easing={easing} className="bg-[#F3F3F3] p-2 rounded-lg shadow-lg lg:flex items-center justify-center gap-6">
       <div className="flex justify-center">
         <img className="rounded-full w-64 h-64" src={image} alt="Agent image" />
       </div>

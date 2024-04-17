@@ -69,15 +69,15 @@ const HomeBanner = ({ scrollToCategoryCards }) => {
               <div className="hero-overlay bg-opacity-30 rounded-xl"></div>
               <div className="hero-content text-center text-neutral-content">
                 <div className="w-11/12">
-                  <h1 className="mb-5 text-2xl lg:text-5xl font-bold">
+                  <h1 data-aos="fade-up" data-aos-duration="1000" className="mb-5 text-2xl lg:text-5xl font-bold">
                     {" "}
                     {data.title}{" "}
                   </h1>
-                  <p className="mb-5 text-sm md:text-base lg:text-base">
+                  <p data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000" className="mb-5 text-sm md:text-base lg:text-base">
                     {data.description}
                   </p>
-                  <div className="flex justify-center">
-                    <button
+                  <div  className="flex justify-center">
+                    <button 
                       onClick={scrollToCategoryCards}
                       className=" group relative flex w-36 items-center rounded-lg border-2 border-[#BB915B] p-4 text-[#fff] text-xl font-bold"
                     >
@@ -110,8 +110,8 @@ const HomeBanner = ({ scrollToCategoryCards }) => {
           </SwiperSlide>
         ))}
         <div className="swiper-pagination"></div>
-        <div className="swiper-button-next"></div>
-        <div className="swiper-button-prev"></div>
+        <div  className="swiper-button-next"></div>
+        <div  className="swiper-button-prev"></div>
       </Swiper>
     </div>
   );

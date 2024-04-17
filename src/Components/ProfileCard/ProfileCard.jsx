@@ -30,33 +30,33 @@ const ProfileCrad = () => {
   return (
     <div className="mx-auto mt-10 mb-12 max-w-[350px] space-y-3 rounded-2xl bg-white px-6 py-6 shadow-md dark:bg-slate-200 md:max-w-[600px] md:max-h-[600px] ">
       <div className="relative ">
-        <img
+        <img data-aos="flip-up" data-aos-duration="500"
           className="h-[200px] w-[600px] rounded-2xl bg-gray-500"
           src="https://source.unsplash.com/350x150/?northern lights"
           alt="Card Bg Image"
         />
-        <img
+        <img 
           className="absolute -bottom-12 left-1/2 h-[150px] w-[150px] -translate-x-1/2 rounded-full border-4 border-white bg-gray-400 dark:border-[#18181B]"
           src={user?.photoURL}
           alt="User profilePhoto"
         />
       </div>
       <div className="space-y-1 pt-8 text-center">
-        <h1 className="text-xl md:text-2xl">{user?.displayName}</h1>
-        <p className="text-sm text-gray-500">{user?.email}</p>
+        <h1 data-aos="fade-down-right" data-aos-duration="500" className="text-xl md:text-2xl">{user?.displayName}</h1>
+        <p data-aos="fade-down-left" data-aos-duration="500" className="text-sm text-gray-500">{user?.email}</p>
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col p-4 space-y-2"
       >
         <div>
-          <label
+          <label data-aos="fade-right" data-aos-delay="500" data-aos-duration="500"
             htmlFor="name"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700"
           >
             Your full name
           </label>
-          <input
+          <input data-aos="fade-left" data-aos-delay="1000" data-aos-duration="500"
             type="text"
             name="name"
             id="name"
@@ -69,13 +69,13 @@ const ProfileCrad = () => {
           )}
         </div>
         <div>
-          <label
+          <label data-aos="fade-right" data-aos-delay="1500" data-aos-duration="500"
             htmlFor="photoURL"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-700"
           >
             Your photo URL
           </label>
-          <input
+          <input data-aos="fade-left" data-aos-delay="2000" data-aos-duration="500"
             type="text"
             name="photoURL"
             id="photoURL"
@@ -88,7 +88,7 @@ const ProfileCrad = () => {
           )}
         </div>
         <div className="flex justify-center">
-          <input
+          <input data-aos="zoom-in-up"  data-aos-duration="500"
             className="w-full text-gray-700 bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
             type="submit"
             value="Update Profile"

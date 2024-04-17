@@ -2,12 +2,12 @@ import { GrCheckboxSelected } from "react-icons/gr";
 
 const Mission = () => {
   return (
-    <div className="mb-24 bg-slate-200 p-4 rounded-md">
-      <h2 className="mb-6 text-center text-3xl text-[#BB915B] font-semibold ">
+    <div data-aos="zoom-in" data-aos-duration="1000"  className="mb-24 bg-slate-200 p-4 rounded-md">
+      <h2 data-aos="zoom-out" data-aos-duration="1000" className="mb-6 text-center text-3xl text-[#BB915B] font-semibold ">
         Our mission is to redefine real estate for the customers
       </h2>
       <div className="flex flex-col md:flex-row lg:flex-row gap-6">
-        <div className=" md:w-1/2 lg:w-1/2  flex items-center text-justify">
+        <div data-aos="fade-right" data-aos-delay="500" className=" md:w-1/2 lg:w-1/2  flex items-center text-justify">
           <p className="text-lg text-[#131313B3]">
             <span className="text-3xl text-[#BB915B] font-semibold">
               Urban-Edge
@@ -21,7 +21,7 @@ const Mission = () => {
             technology and unparalleled customer service.
           </p>
         </div>
-        <div className="md:w-1/2 lg:w-1/2 text-[#131313B3] flex justify-center">
+        <div data-aos="fade-left" data-aos-delay="1000" className="md:w-1/2 lg:w-1/2 text-[#131313B3] flex justify-center">
           <div>
             <p className="flex items-center gap-2 text-lg">
               <GrCheckboxSelected></GrCheckboxSelected>Only pay when you publish

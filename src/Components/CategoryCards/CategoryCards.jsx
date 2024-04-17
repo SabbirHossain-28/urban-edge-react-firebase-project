@@ -13,13 +13,13 @@ const CategoryCards = ({ cardsContainerRef }) => {
       .then((data) => setCategoryData(data));
   }, []);
   return (
-    <div className="bg-slate-200 p-8 mb-24 rounded-md">
+    <div  className="bg-slate-200 p-8 mb-24 rounded-md">
       <div ref={cardsContainerRef} className="text-center">
-        <h2 className="text-3xl font-semibold text-[#BB915B] mb-6">
+        <h2 data-aos="zoom-out" data-aos-duration="1000" className="text-3xl font-semibold text-[#BB915B] mb-6">
           What Are You Looking For?
         </h2>
-        <p className="text[#131313B3] mb-6">
-          Discover a diverse range of commercial estates tailored to meet the
+        <p data-aos="zoom-out" data-aos-duration="1000" data-aos-delay="500" className="text[#131313B3] mb-6">
+          Discover a diverse range of commercial estates tailored to meet the 
           needs of businesses across various industries. From sleek office
           towers in bustling downtown districts to versatile retail spaces on
           vibrant main streets, our curated selection offers prime locations and
